@@ -18,6 +18,9 @@ This plugin creates an easy to use interface for managing the Supersized jQuery 
 
 1. Upload the `envoke-supersized` folder to the `/wp-content/plugins/` directory
 1. Activate the plugin through the 'Plugins' menu in WordPress
+1. Navigate to the 'Supersized Slides' page in the WordPress admin and click Add New
+1. Set the featured image as the background you want to use for this slide.
+
 
 == Frequently Asked Questions ==
 
@@ -34,6 +37,9 @@ Let us know. You can contact us through our website [Envoke Design](http://envok
 1. Example of the Envoke-Supersized plugin in action on our own website.
 
 == Changelog ==
+
+= 1.0.2 =
+* Minor Bug Fixes
 
 = 1.0.1 =
 * Fixed broken links to images in the supersized_assets dir

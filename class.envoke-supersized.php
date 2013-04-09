@@ -5,6 +5,9 @@
 class Envoke_Supersized
 {
 
+	protected static $post_type = 'slides';
+	protected static $taxonomy = 'slide-category';
+
 	protected static $settings = array(
 		'slideshow' => 'Slideshow',
 		'autoplay' => 'Auto Play',
@@ -41,7 +44,7 @@ class Envoke_Supersized
 
 
 	public static function admin_menu() {
-		add_submenu_page('edit.php?post_type=slides',__('Settings'),__('Settings'),'edit_posts','envoke-supersized-settings',array('Envoke_Supersized_Admin_Pages','settings'));
+		add_submenu_page('edit.php?post_type='.self::$post_type,__('Settings'),__('Settings'),'edit_posts','envoke-supersized-settings',array('Envoke_Supersized_Admin_Pages','settings'));
 	}
 
 	public static function enqueue_scripts() {
@@ -74,7 +77,7 @@ class Envoke_Supersized
 
 		$images = array();
 		$args = array(
-			'post_type' => 'slides',
+			'post_type' => self::$post_type,
 		);
 		$query = new WP_Query($args);
 		global $post;
@@ -230,7 +233,7 @@ class Envoke_Supersized
 			'supports' => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'comments' )
 		);
 
-		register_post_type( 'slides', $args );
+		register_post_type( self::$post_type, $args );
 
 		// Add new taxonomy, make it hierarchical (like categories)
 		$labels = array(
@@ -247,7 +250,7 @@ class Envoke_Supersized
 			'menu_name' => __( 'Categories' ),
 		);
 
-		register_taxonomy('slide-category',array('slides'), array(
+		register_taxonomy(self::$taxonomy,array(self::$post_type), array(
 			'hierarchical' => true,
 			'labels' => $labels,
 			'show_ui' => true,
