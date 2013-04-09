@@ -35,5 +35,8 @@ Let us know. You can contact us through our website [Envoke Design](http://envok
 
 == Changelog ==
 
+= 1.0.1 =
+* Fixed broken links to images in the supersized_assets dir
+
 = 1.0 =
 * The first publicly available version of the Envoke Supersized plugin
