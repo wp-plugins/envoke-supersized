@@ -18,7 +18,6 @@ This plugin creates an easy to use interface for managing the Supersized jQuery 
 
 1. Upload the `envoke-supersized` folder to the `/wp-content/plugins/` directory
 1. Activate the plugin through the 'Plugins' menu in WordPress
-1. Add `[envoke-supersized]` in your pages or place `<?php echo do_shortcode('plugin_name_hook'); ?>` in your template files
 
 == Frequently Asked Questions ==
 

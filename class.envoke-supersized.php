@@ -178,7 +178,7 @@ class Envoke_Supersized
 			<div id="controls-wrapper" class="load-item">
 				<div id="controls">
 
-					<a id="play-button"><img id="pauseplay" src="<?php echo plugin_dir_url(__FILE__); ?>img/pause.png"/></a>
+					<a id="play-button"><img id="pauseplay" src="<?php echo plugin_dir_url(__FILE__); ?>supersized_assets/img/pause.png"/></a>
 
 					<!--Slide counter-->
 					<div id="slidecounter">
@@ -186,7 +186,7 @@ class Envoke_Supersized
 					</div>
 
 					<!--Thumb Tray button-->
-					<a id="tray-button"><img id="tray-arrow" src="<?php echo plugin_dir_url(__FILE__); ?>img/button-tray-up.png"/></a>
+					<a id="tray-button"><img id="tray-arrow" src="<?php echo plugin_dir_url(__FILE__); ?>supersized_assets/img/button-tray-up.png"/></a>
 
 					<!--Navigation-->
 					<ul id="slide-list"></ul>
