@@ -4,8 +4,8 @@
  * Description: This plugin creates an easy to use interface for managing the Supersized jQuery Plugin on your site.
  * Author: Envoke Design
  * Author URI: http://envokedesign.com
- * Plugin URI: http://envokedesign.com/wordpress-plugins/supersized
- * Version: 1.0.2
+ * Plugin URI: http://envokedesign.com/wordpress-plugin-development/supersized
+ * Version: 1.0.3
  */
 
 
