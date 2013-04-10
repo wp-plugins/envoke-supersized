@@ -37,6 +37,9 @@ Let us know. You can contact us through our website [Envoke Design](http://envok
 
 == Changelog ==
 
+= 1.0.3 =
+* Readme File Fixes and correcting some links
+
 = 1.0.2 =
 * Minor Bug Fixes
 
