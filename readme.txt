@@ -1,6 +1,5 @@
 === Envoke Supersized ===
-Contributors: cmmarslender, dillonmccallum
-Donate link: http://example.com/
+Contributors: cmmarslender, dillonmccallum, envoke
 Tags: supersized, slideshow, fullscreen, background, gallery, image, images, plugin, custom post type, javascript, jquery, slider, media, picture, pictures
 Requires at least: 3.0.1
 Tested up to: 3.5.1
@@ -28,7 +27,7 @@ This plugin creates an easy to use interface for managing the Supersized jQuery 
 
 You can use as few or as many as you would like
 
-= What if I find a bug or have a suggestion for improvments? =
+= What if I find a bug or have a suggestion for improvements? =
 
 Let us know. You can contact us through our website [Envoke Design](http://envokedesign.com/ "Web Design Portland")
 

@@ -12,7 +12,6 @@
 
 require_once plugin_dir_path(__FILE__) . 'class.envoke-supersized.php';
 require_once plugin_dir_path(__FILE__) . 'class.envoke-supersized-admin-pages.php';
-//require_once plugin_dir_path(__FILE__) . 'class.envoke-google-calendar-shortcodes.php';
 
 add_action('init', array('Envoke_Supersized', 'register_post_types'));
 
