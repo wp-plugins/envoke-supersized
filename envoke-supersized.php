@@ -5,7 +5,7 @@
  * Author: Envoke Design
  * Author URI: http://envokedesign.com
  * Plugin URI: http://envokedesign.com/wordpress-plugin-development/supersized
- * Version: 1.0.3
+ * Version: 1.1.0
  */
 
 

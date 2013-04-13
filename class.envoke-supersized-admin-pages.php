@@ -22,20 +22,54 @@ class Envoke_Supersized_Admin_Pages extends Envoke_Supersized
 		<div class="wrap">
 			<div class="icon32" id="icon-options-general"></div>
 			<h2>Supersized by Envoke</h2>
-			<h4>For now, use 1 for TRUE and 2 for FALSE</h4>
 
 			<form method="POST">
 				<table class="form-table envoke-supersized-settings">
 					<tbody>
 					<?php
-					foreach ( self::$settings as $slug => $name ) {
+					foreach ( self::$settings as $slug => $data ) {
 						?>
 						<tr valign="top">
 							<th scope="row">
-								<label for="envoke-supersized-<?php echo $slug; ?>"><?php echo $name; ?></label>
+								<label for="envoke-supersized-<?php echo $slug; ?>"><?php echo $data['name']; ?></label>
 							</th>
 							<td>
-								<input type="text" name="<?php echo $slug; ?>" id="envoke-supersized-<?php echo $slug; ?>" class="regular-text" value="<?php echo self::${$slug}; ?>" />
+								<?php
+									switch($data['type']) {
+										case 'text':
+											echo '<input type="text" name="'.$slug.'" id="envoke-supersized-'.$slug.'" class="regular-text" value="'.self::${$slug}.'" />';
+											break;
+										case 'select':
+											echo '<select name="'.$slug.'" id="envoke-supersized-'.$slug.'" class="regular-text">';
+											foreach( $data['options'] as $value => $name ) {
+												$selected = (integer)$value == (integer)self::${$slug} ? 'selected' : '';
+												echo '<option value="'.$value.'" '.$selected.'>'.$name.'</option>';
+											}
+											echo '</select>';
+											break;
+										case 'number':
+											echo '<input type="number" name="'.$slug.'" id="envoke-supersized-'.$slug.'" class="regular-text" value="'.self::${$slug}.'" />';
+											break;
+										case 'boolean':
+											$selectedyes = (integer)self::${$slug} ? 'checked' : '';
+											$selectedno = (integer)self::${$slug} ? '' : 'checked';
+											echo '<fieldset>';
+											echo '<label for="envoke-supersized-'.$slug.'-yes">';
+											echo '<input type="radio" name="'.$slug.'" id="envoke-supersized-'.$slug.'-yes" class="" value="1" '.$selectedyes.'/>';
+											echo '<span>Yes</span>';
+											echo '</label><br />';
+											echo '<label for="envoke-supersized-'.$slug.'-no">';
+											echo '<input type="radio" name="'.$slug.'" id="envoke-supersized-no'.$slug.'-no" class="" value="0" '.$selectedno.'/>';
+											echo '<span>No</span>';
+											echo '</label>';
+											echo '</fieldset>';
+
+											break;
+										default:
+											throw new Exception("Type is not definied in " . __FILE__ . ' ' . __LINE__);
+											break;
+									}
+								?>
 							</td>
 						</tr>
 						<?php

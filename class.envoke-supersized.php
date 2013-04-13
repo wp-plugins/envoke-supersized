@@ -9,6 +9,57 @@ class Envoke_Supersized
 	protected static $taxonomy = 'slide-category';
 
 	protected static $settings = array(
+		'slideshow' => array(
+			'name' => 'Slideshow',
+			'type' => 'boolean'
+		),
+		'autoplay' => array(
+			'name' => 'Auto Play',
+			'type' => 'boolean',
+		),
+		'start_slide' => array(
+			'name' => 'Start Slide (number)',
+			'type' => 'number',
+			'min' => '1',
+			'max' => '',
+		),
+		'random' => array(
+			'name' => 'Random Start Slide',
+			'type' => 'boolean'
+		),
+		'slide_interval' => array(
+			'name' => 'Slide Interval (ms)',
+			'type' => 'number',
+			'min' => '1',
+			'max' => '',
+		),
+		'transition' => array(
+			'name' => 'Transition Effect',
+			'type' => 'select',
+			'options' => array(
+				'0' => 'No transition effect',
+				'1' => 'Fade effect (Default)',
+				'2' => 'Slide in from top',
+				'3' => 'Slide in from right',
+				'4' => 'Slide in from bottom',
+				'5' => 'Slide in from left',
+				'6' => 'Carousel from right to left',
+				'7' => 'Carousel from left to right',
+			),
+		),
+		'transition_speed' => array(
+			'name' => 'Transition Speed (ms)',
+			'type' => 'number',
+			'min' => '1',
+			'max' => '',
+		),
+		'progress_bar' => array(
+			'name' => 'Progress Bar',
+			'type' => 'boolean',
+		),
+	);
+
+	protected static $oldsettings = array(
 		'slideshow' => 'Slideshow',
 		'autoplay' => 'Auto Play',
 		'start_slide' => 'Start Slide (number)',
