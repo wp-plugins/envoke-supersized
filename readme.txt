@@ -2,7 +2,7 @@
 Contributors: cmmarslender, dillonmccallum, envoke
 Tags: supersized, slideshow, fullscreen, background, gallery, image, images, plugin, custom post type, javascript, jquery, slider, media, picture, pictures
 Requires at least: 3.0.1
-Tested up to: 3.5.1
+Tested up to: 3.5.2
 Stable tag: /trunk/
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -37,6 +37,13 @@ Let us know. You can contact us through our website [Envoke Design](http://envok
 
 == Changelog ==
 
+= 1.3.0 =
+* Removed some unnecessary debugging code
+* Security Improvements
+
+= 1.2.0 =
+* Added ability to specify a single, custom image and a per page/post basis
+
 = 1.1.0 =
 * Improvements to the settings page
 
@@ -51,3 +58,11 @@ Let us know. You can contact us through our website [Envoke Design](http://envok
 
 = 1.0 =
 * The first publicly available version of the Envoke Supersized plugin
+
+== Upgrade Notice ==
+
+= 1.3.0 =
+Security Improvements
+
+= 1.2.0 =
+You can now set a single, custom image on a per page/post basis, to override the default slideshow

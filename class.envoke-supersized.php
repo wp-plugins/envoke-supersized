@@ -4,9 +4,14 @@
  */
 class Envoke_Supersized
 {
+	protected static $version = '1.3.0';
 
 	protected static $post_type = 'slides';
 	protected static $taxonomy = 'slide-category';
+
+	protected static $per_page_image_url = 'envoke_ss_page_image_url';
+	protected static $per_page_image_title = 'envoke_ss_page_image_title';
+	protected static $per_page_image_content = 'envoke_ss_page_image_content';
 
 	protected static $settings = array(
 		'slideshow' => array(
@@ -81,8 +86,6 @@ class Envoke_Supersized
 		'progress_bar' => '1',
 	);
 
-
-
 	protected static $got_settings = false; //internal flag
 	protected static $slideshow = null;
 	protected static $autoplay = null;
@@ -103,7 +106,7 @@ class Envoke_Supersized
 		wp_enqueue_style('supersized-theme', plugin_dir_url(__FILE__) . 'supersized_assets/theme/supersized.shutter.css');
 		wp_enqueue_script('supersized', plugin_dir_url(__FILE__) . 'supersized_assets/js/supersized.3.2.7.min.js', array('jquery') );
 		wp_enqueue_script('supersized-theme', plugin_dir_url(__FILE__) . 'supersized_assets/theme/supersized.shutter.min.js', array('supersized'));
-		wp_enqueue_script('cmi_supersized', plugin_dir_url(__FILE__) . 'supersized_assets/js/supersized.js', array('supersized') );
+		//wp_enqueue_script('cmi_supersized', plugin_dir_url(__FILE__) . 'supersized_assets/js/supersized.js', array('supersized') );
 	}
 
 	public static function load_settings($force = false) {
@@ -126,25 +129,42 @@ class Envoke_Supersized
 	public static function localize_script() {
 		self::load_settings();
 
+		$queriedObject = get_queried_object();
+		$page_id = $queriedObject->ID;
 		$images = array();
-		$args = array(
-			'post_type' => self::$post_type,
-		);
-		$query = new WP_Query($args);
-		global $post;
-		while ( $query->have_posts() ):
-			$query->the_post();
-			$image = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'full' );
-			error_log(print_r($post,true),0);
-			$formatted = '<h4 class="slide-title">'.$post->post_title.'</h4>';
-			$formatted .= '<div class="slide-content">'.$post->post_content.'</div>';
+
+		$image = get_post_meta($page_id, self::$per_page_image_url, true);
+		if ( $image ) {
+			//already have image
+			$title = get_post_meta($page_id, self::$per_page_image_title, true);
+			$content = get_post_meta($page_id, self::$per_page_image_content, true);
+
+			$formatted = '<h4 class="slide-title">'.$title.'</h4>';
+			$formatted .= '<div class="slide-content">'.$content.'</div>';
+
 			$images[] = array(
-				'image' =>  $image[0],
-				'title' => $post->post_title,
-				//'content' => $post->post_content
+				'image' => $image,
+				'title' => $title,
 				'content' => $formatted
 			);
-		endwhile;
+		} else {
+			$args = array(
+				'post_type' => self::$post_type,
+			);
+			$query = new WP_Query($args);
+			global $post;
+			while ( $query->have_posts() ):
+				$query->the_post();
+				$image = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'full' );
+				$formatted = '<h4 class="slide-title">'.$post->post_title.'</h4>';
+				$formatted .= '<div class="slide-content">'.$post->post_content.'</div>';
+				$images[] = array(
+					'image' =>  $image[0],
+					'title' => $post->post_title,
+					'content' => $formatted
+				);
+			endwhile;
+		}
 
 		?>
 		<script type="text/javascript">
