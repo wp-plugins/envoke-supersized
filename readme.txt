@@ -37,6 +37,9 @@ Let us know. You can contact us through our website [Envoke Design](http://envok
 
 == Changelog ==
 
+= 1.3.2 =
+* Added a comma that was lost from last update
+
 = 1.3.1 =
 * Fixed bug that prevented the plugin from working correctly in some versions of Internet Explorer
 

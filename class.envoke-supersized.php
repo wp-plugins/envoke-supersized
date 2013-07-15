@@ -4,7 +4,7 @@
  */
 class Envoke_Supersized
 {
-	protected static $version = '1.3.1';
+	protected static $version = '1.3.2';
 
 	protected static $post_type = 'slides';
 	protected static $taxonomy = 'slide-category';
@@ -184,7 +184,7 @@ class Envoke_Supersized
 					}
                     ?>
 
-					stop_loop				:	0,			// Pauses slideshow on last slide
+					,stop_loop				:	0,			// Pauses slideshow on last slide
 					new_window				:	1,			// Image links open in new window/tab
 					pause_hover             :   0,			// Pause slideshow on hover
 					keyboard_nav            :   0,			// Keyboard navigation on/off
