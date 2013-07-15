@@ -5,7 +5,7 @@
  * Author: Envoke Design
  * Author URI: http://envokedesign.com
  * Plugin URI: http://envokedesign.com/wordpress-plugin-development/supersized
- * Version: 1.3.0
+ * Version: 1.3.1
  */
 //Change version in the class.envoke-supersized file to (class var)
 

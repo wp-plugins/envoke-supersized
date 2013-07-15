@@ -4,7 +4,7 @@
  */
 class Envoke_Supersized
 {
-	protected static $version = '1.3.0';
+	protected static $version = '1.3.1';
 
 	protected static $post_type = 'slides';
 	protected static $taxonomy = 'slide-category';
@@ -174,8 +174,13 @@ class Envoke_Supersized
 
 					// Functionality
 					<?php
+					$count = 0;
 					foreach ( self::$settings as $slug => $label ) {
-						echo $slug . ':' . self::${$slug} . ',';
+						$count++;
+						if ( $count > 1 ) {
+						echo ',';
+						}
+						echo $slug . ':' . self::${$slug};
 					}
                     ?>
 

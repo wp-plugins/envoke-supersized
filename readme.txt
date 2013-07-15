@@ -37,6 +37,9 @@ Let us know. You can contact us through our website [Envoke Design](http://envok
 
 == Changelog ==
 
+= 1.3.1 =
+* Fixed bug that prevented the plugin from working correctly in some versions of Internet Explorer
+
 = 1.3.0 =
 * Removed some unnecessary debugging code
 * Security Improvements
@@ -60,6 +63,9 @@ Let us know. You can contact us through our website [Envoke Design](http://envok
 * The first publicly available version of the Envoke Supersized plugin
 
 == Upgrade Notice ==
+
+= 1.3.1 =
+Fixed bug that prevented the plugin from working correctly in some versions of Internet Explorer
 
 = 1.3.0 =
 Security Improvements
