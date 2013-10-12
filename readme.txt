@@ -17,7 +17,7 @@ post images will override the global images if set for a particular post.
 
 Find a bug or have suggestions for improvment? You can contact us through our website
 [Envoke Design](http://envokedesign.com/ "Web Design Portland") or create an issue using our
-[Issue Tracker](bitbucket.org/envokedesign/envoke-supersized/issues)
+[Issue Tracker](https://bitbucket.org/envokedesign/envoke-supersized/issues)
 
 == Installation ==
 
@@ -37,7 +37,7 @@ enough people want the feature.
 = What if I find a bug or have a suggestion for improvements? =
 
 Let us know. You can contact us through our website [Envoke Design](http://envokedesign.com/ "Web Design Portland") or
-create an issue using our [Issue Tracker](bitbucket.org/envokedesign/envoke-supersized/issues)
+create an issue using our [Issue Tracker](https://bitbucket.org/envokedesign/envoke-supersized/issues)
 
 == Screenshots ==
 
