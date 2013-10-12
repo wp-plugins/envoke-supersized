@@ -3,7 +3,7 @@ Contributors: cmmarslender, dillonmccallum, envoke
 Tags: supersized, slideshow, fullscreen, background, gallery, image, images, plugin, custom post type, javascript, jquery, slider, media, picture, pictures
 Requires at least: 3.0.1
 Tested up to: 3.5.2
-Stable tag: /trunk/
+Stable tag: 1.3.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
