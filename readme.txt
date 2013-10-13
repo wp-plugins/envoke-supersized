@@ -47,6 +47,7 @@ create an issue using our [Issue Tracker](https://bitbucket.org/envokedesign/env
 
 = 2.0.0 =
 Version 2.0.0 brings many bug fixes and improvements, and a lot of under-the-hood improvements
+
 * Title and Caption fields have been added for the images set on a per post basis
 * Better support for translations
 * Ability to choose between multiple image overlay options, or turn them off completely
