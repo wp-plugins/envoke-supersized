@@ -160,6 +160,7 @@ class ENSS_Slide extends ENSS_Singleton {
 		$images = array();
 		$args = array(
 			'post_type' => $this->_post_type,
+			'posts_per_page' => apply_filters( 'enss-max-images', 50 ),//added 2.0.2
 		);
 		$query = new WP_Query( $args );
 		if ( $query->have_posts() ) {

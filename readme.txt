@@ -3,7 +3,7 @@ Contributors:      cmmarslender, dillonmccallum, envoke
 Tags: 			   supersized, slideshow, fullscreen, background, gallery, image, images, plugin, custom post type, javascript, jquery, slider, media, picture, pictures
 Requires at least: 3.5.1
 Tested up to:      3.6.1
-Stable tag:        2.0.1
+Stable tag:        2.0.2
 License:           GPLv2 or later
 License URI:       http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -44,6 +44,12 @@ create an issue using our [Issue Tracker](https://bitbucket.org/envokedesign/env
 1. Example of the Envoke-Supersized plugin in action on our own website.
 
 == Changelog ==
+
+= 2.0.2 =
+Version 2.0.2 fixes missing translations and a few bugfixes.
+
+* Increased images that load by default on front end. Added filter 'enss-max-images' to easily alter this, if necessary.
+* Made sure that all settings can be translated.
 
 = 2.0.0 =
 Version 2.0.0 brings many bug fixes and improvements, and a lot of under-the-hood improvements

@@ -42,6 +42,10 @@ class ENSS_Back_Compat extends ENSS_Singleton {
 	 * @see ENSS_Singleton::get_instance()
 	 */
 	public function _init() {
+		add_action( 'init', array( $this, 'check_if_enabled' ), 15 ); // Needs to come after the normal settings are setup
+	}
+
+	public function check_if_enabled() {
 		$settings = ENSS_Settings::get_instance();
 		if ( $settings->get_setting( 'back_compat' ) ) {
 			add_filter( 'enss-per-post-have-images', array( $this, 'per_post_have_images' ), 10, 2 );

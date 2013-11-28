@@ -105,7 +105,7 @@ class ENSS_Settings extends ENSS_Singleton {
 	 * @see ENSS_Singleton::get_instance()
 	 */
 	public function _init() {
-		$this->build_settings();
+		add_action( 'init', array( $this, 'build_settings' ) );
 
 		add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue_scripts' ) );
 		add_action( 'admin_menu', array( $this, 'add_settings_page' ) );
@@ -265,12 +265,12 @@ class ENSS_Settings extends ENSS_Singleton {
 				<fieldset>
 					<label for="enss-<?php echo $name; ?>-yes">
 						<input type="radio" name="<?php echo $name; ?>" id="enss-<?php echo $name; ?>-yes" value="1" <?php checked( $this->get_setting( $name ), '1' ); ?>/>
-						<span>Yes</span>
+						<span><?php _e( 'Yes', 'enss' ); ?></span>
 					</label>
 					<br>
 					<label for="enss-<?php echo $name; ?>-no">
 						<input type="radio" name="<?php echo $name; ?>" id="enss-<?php echo $name; ?>-no" value="0" <?php checked( $this->get_setting( $name ), '0' ); ?>/>
-						<span>No</span>
+						<span><?php _e( 'No', 'enss' ); ?></span>
 					</label>
 				</fieldset>
 				<?php
@@ -468,7 +468,7 @@ class ENSS_Settings extends ENSS_Singleton {
 	 *
 	 * @since 2.0.0
 	 */
-	protected function build_settings() {
+	public function build_settings() {
 		$this->settings = array(
 			/* Supersized Settings Group */
 			'slideshow' => array(
