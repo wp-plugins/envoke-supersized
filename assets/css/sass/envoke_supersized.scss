@@ -7,6 +7,9 @@
  */
 
 .enss-container {
+	ul {
+		margin: 0; // Fixes compatability with themes that have margin applied to all ul elements on the page
+	}
 	#slidecaptiontext {
 		font-weight: 200;
 	}
@@ -37,6 +40,12 @@
 	&.enss-overlay-grid {
 		background: url("../../images/overlay-grid.png") repeat scroll 0 0 transparent;
 	}
+}
+
+// Fixes compatibility with themes that apply margin & padding to ALL ul elements on the page
+#supersized {
+	margin: 0;
+	padding: 0;
 }
 
 @import "supersized";

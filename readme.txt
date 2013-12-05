@@ -2,8 +2,8 @@
 Contributors:      cmmarslender, dillonmccallum, envoke
 Tags: 			   supersized, slideshow, fullscreen, background, gallery, image, images, plugin, custom post type, javascript, jquery, slider, media, picture, pictures
 Requires at least: 3.5.1
-Tested up to:      3.6.1
-Stable tag:        2.0.2
+Tested up to:      3.7.1
+Stable tag:        2.0.3
 License:           GPLv2 or later
 License URI:       http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -39,11 +39,21 @@ enough people want the feature.
 Let us know. You can contact us through our website [Envoke Design](http://envokedesign.com/ "Web Design Portland") or
 create an issue using our [Issue Tracker](https://bitbucket.org/envokedesign/envoke-supersized/issues)
 
+= All my slides are not loading, what gives? =
+
+The plugin currently limits the number of slides that will load on any given page to 50. For most people, this is more
+than plenty, but if you need to increase this, there is a filter available for this purpose - 'enss-max-images'. For
+example, to increase the number of images to 75, you could add the following line to your functions.php file:
+`add_filter( 'enss-max-images', function( $number ) { return 75; });`
+
 == Screenshots ==
 
 1. Example of the Envoke-Supersized plugin in action on our own website.
 
 == Changelog ==
+
+= 2.0.3 =
+* Fixes display issues related to themes targeting all ul elements on a page with default margin and padding.
 
 = 2.0.2 =
 Version 2.0.2 fixes missing translations and a few bugfixes.
@@ -92,6 +102,9 @@ Version 2.0.0 brings many bug fixes and improvements, and a lot of under-the-hoo
 * The first publicly available version of the Envoke Supersized plugin
 
 == Upgrade Notice ==
+
+= 2.0.3 =
+Version 2.0.3 fixes display issues that were seen in themes that targeted all ul elements with default styling.
 
 = 2.0.0 =
 Version 2.0.0 brings a lot of under-the-hood improvements, bugfixes, and better support for titles and captions. Image
