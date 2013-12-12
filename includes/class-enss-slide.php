@@ -48,6 +48,9 @@ class ENSS_Slide extends ENSS_Singleton {
 	function _init() {
 		add_action( 'init', array( $this, 'register_post_type' ) );
 		add_action( 'init', array( $this, 'register_taxonomies' ) );
+		add_action( 'manage_' . $this->_post_type . '_posts_columns', array( $this, 'add_thumbnail_column' ) );
+		add_action( 'manage_' . $this->_post_type . '_posts_custom_column', array( $this, 'manage_posts_custom_column'), 10, 2 );
+		add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue_scripts' ) );
 	}
 
 	/**
@@ -129,6 +132,55 @@ class ENSS_Slide extends ENSS_Singleton {
 				'rewrite' => array( 'slug' => 'slide-category' ),
 			)
 		);
+	}
+
+	/**
+	 * Add a column to the post type to show thumbnails
+	 *
+	 * @since 2.1.0
+	 *
+	 * @param array $columns
+	 *
+	 * @return array
+	 */
+	function add_thumbnail_column( $columns ) {
+		$columns_1 = array_slice( $columns, 0, 1 );
+		$columns_2 = array_slice( $columns, 1 );
+
+		$columns_1['enss_thumbnail'] = __( 'Preview', 'enss' );
+
+		$columns = array_merge( $columns_1, $columns_2 );
+
+		return $columns;
+	}
+
+	/**
+	 * Output the thumbnail for the slide in the list of all slides
+	 *
+	 * @since 2.1.0
+	 *
+	 * @param string $column
+	 * @param int    $post_id
+	 *
+	 * @return null
+	 */
+	function manage_posts_custom_column( $column, $post_id ) {
+		if ( 'enss_thumbnail' == $column ) {
+			echo get_the_post_thumbnail( $post_id, array( 80, 80 ) );
+		}
+	}
+
+	/**
+	 * Register styles used in the admin for the post type
+	 *
+	 * @since 2.1.0
+	 */
+	function admin_enqueue_scripts() {
+		wp_register_style( 'enss-admin', ENSS_URL . 'assets/css/enss-admin.min.css' );
+
+		if ( $this->_post_type == get_post_type( get_queried_object_id() ) ) {
+			wp_enqueue_style( 'enss-admin' );
+		}
 	}
 
 	/**

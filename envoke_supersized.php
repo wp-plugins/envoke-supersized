@@ -3,7 +3,7 @@
  * Plugin Name: Envoke Supersized
  * Plugin URI:  https://bitbucket.org/envokedesign/envoke-supersized
  * Description: This plugin creates an easy to use interface for managing the Supersized jQuery Plugin on your site.
- * Version:     2.0.3
+ * Version:     2.1.0
  * Author:      Chris Marslender, Dillon McCallum
  * License:     GPLv2+
  * Text Domain: enss
@@ -29,7 +29,7 @@
  */
 
 // Useful global constants
-define( 'ENSS_VERSION', '2.0.3' );
+define( 'ENSS_VERSION', '2.1.0' );
 define( 'ENSS_URL',     plugin_dir_url( __FILE__ ) );
 define( 'ENSS_PATH',    dirname( __FILE__ ) . '/' );
 
