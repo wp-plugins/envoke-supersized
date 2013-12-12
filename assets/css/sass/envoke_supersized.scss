@@ -1,0 +1,53 @@
+/**
+ * Envoke Supersized
+ * http://envokedesign.com
+ *
+ * Copyright (c) 2013 Chris Marslender
+ * Licensed under the GPLv2+ license.
+ */
+
+.enss-container {
+	ul {
+		margin: 0; // Fixes compatability with themes that have margin applied to all ul elements on the page
+	}
+	#slidecaptiontext {
+		font-weight: 200;
+	}
+}
+
+.enss-overlay {
+	display: block;
+	height: 100%;
+	left: 0;
+	overflow: hidden;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: -9;
+
+	&.enss-overlay-dots {
+		background: url("../../images/overlay-dots.png") repeat scroll 0 0 transparent;
+	}
+
+	&.enss-overlay-hlines {
+		background: url("../../images/overlay-hlines.png") repeat scroll 0 0 transparent;
+	}
+
+	&.enss-overlay-vlines {
+		background: url("../../images/overlay-vlines.png") repeat scroll 0 0 transparent;
+	}
+
+	&.enss-overlay-grid {
+		background: url("../../images/overlay-grid.png") repeat scroll 0 0 transparent;
+	}
+}
+
+// Fixes compatibility with themes that apply margin & padding to ALL ul elements on the page
+#supersized {
+	margin: 0;
+	padding: 0;
+}
+
+@import "supersized";
+
+@import "supersized-shutter";
