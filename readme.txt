@@ -3,7 +3,7 @@ Contributors:      cmmarslender, dillonmccallum, envoke
 Tags: 			   supersized, slideshow, fullscreen, background, gallery, image, images, plugin, custom post type, javascript, jquery, slider, media, picture, pictures
 Requires at least: 3.5.1
 Tested up to:      3.8
-Stable tag:        2.1.0
+Stable tag:        2.1.1
 License:           GPLv2 or later
 License URI:       http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -39,18 +39,30 @@ enough people want the feature.
 Let us know. You can contact us through our website [Envoke Design](http://envokedesign.com/ "Web Design Portland") or
 create an issue using our [Issue Tracker](https://bitbucket.org/envokedesign/envoke-supersized/issues)
 
-= All my slides are not loading, what gives? =
+= Only some of my slides are loading. How can I load more? =
 
 The plugin currently limits the number of slides that will load on any given page to 50. For most people, this is more
 than plenty, but if you need to increase this, there is a filter available for this purpose - 'enss-max-images'. For
 example, to increase the number of images to 75, you could add the following line to your functions.php file:
 `add_filter( 'enss-max-images', function( $number ) { return 75; });`
 
+= I was to be able to override the background for a custom post type. How can I do this? =
+
+By default, only posts and pages have the override meta box available. To add it to other post types, you can use the
+ 'enss-override-post-types' filter. The filter gets passed an array of supported post types. To add one, you can just
+ append the post type to the array, then return the modified array. See
+ [this issue](https://bitbucket.org/envokedesign/envoke-supersized/issue/14/override-background-dont-show-in-custom)
+ for an example of how to implement this.
+
 == Screenshots ==
 
 1. Example of the Envoke-Supersized plugin in action on our own website.
 
 == Changelog ==
+
+= 2.1.1 =
+* Fixed missing stylesheet issue with 2.1.0
+* Adds an icon for the menu item
 
 = 2.1.0 =
 * Added thumbnails to the list of slides in the admin.
@@ -105,6 +117,9 @@ Version 2.0.0 brings many bug fixes and improvements, and a lot of under-the-hoo
 * The first publicly available version of the Envoke Supersized plugin
 
 == Upgrade Notice ==
+
+= 2.1.1 =
+Fixes a missing admin stylesheet
 
 = 2.1.0 =
 Version 2.1.0 adds thumbnails to the list of slides in the admin.
