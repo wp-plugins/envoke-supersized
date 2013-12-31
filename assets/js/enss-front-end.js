@@ -1,4 +1,4 @@
-/*! Envoke Supersized - v2.1.0
+/*! Envoke Supersized - v2.1.1
  * http://envokedesign.com
  * Copyright (c) 2013; * Licensed GPLv2+ */
 (function($){
