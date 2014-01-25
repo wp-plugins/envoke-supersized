@@ -247,7 +247,11 @@ class ENSS_Per_Post_Override extends ENSS_Singleton {
 	 * @return bool true if there is an image, false if not.
 	 */
 	public function have_images( $post_id = false ) {
-		if ( ! $post_id ) {
+		/*
+		 * Added is_singular() check in 2.1.2 - cant really override in other cases anyways, and in cases where ONLY
+		 * overrides were being used, and no slides, things would break on archive type pages
+		 */
+		if ( ! $post_id && is_singular() ) {
 			$post_id = get_queried_object_id();
 		}
 		if ( ! $post_id ) {

@@ -3,7 +3,7 @@ Contributors:      cmmarslender, dillonmccallum, envoke
 Tags: 			   supersized, slideshow, fullscreen, background, gallery, image, images, plugin, custom post type, javascript, jquery, slider, media, picture, pictures
 Requires at least: 3.5.1
 Tested up to:      3.8
-Stable tag:        2.1.1
+Stable tag:        2.1.2
 License:           GPLv2 or later
 License URI:       http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -59,6 +59,13 @@ By default, only posts and pages have the override meta box available. To add it
 1. Example of the Envoke-Supersized plugin in action on our own website.
 
 == Changelog ==
+
+= 2.1.2
+* Fix: Only check for overrides where is_singular() returns true, since they aren't supported anywhere else
+* Fix: Call wp_reset_query() to account for themes and other plugins that modify the global objects, without resetting them
+* Fix: Use get_post_type() instead of accessing _post_type directly, to make sure filters are always applied
+* New: Added a filter to allow arbitrarily disabling the plugin by returning false (per page, etc)
+* New: Added a body class 'enss' when the plugin is enabled and has slides for the page
 
 = 2.1.1 =
 * Fixed missing stylesheet issue with 2.1.0
@@ -117,6 +124,12 @@ Version 2.0.0 brings many bug fixes and improvements, and a lot of under-the-hoo
 * The first publicly available version of the Envoke Supersized plugin
 
 == Upgrade Notice ==
+
+= 2.1.2 =
+Fixes issue where overrides and slides would conflict on non-singular pages. Thanks Bozz for reporting the issue and
+helping debug!
+Adds a filter that allows arbitrarily disabling the plugin.
+Adds a body class whenever we output slides to a page "enss"
 
 = 2.1.1 =
 Fixes a missing admin stylesheet
