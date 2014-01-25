@@ -38,6 +38,19 @@ class ENSS_Slide extends ENSS_Singleton {
 	protected $_taxonomy = 'slide-category';
 
 	/**
+	 * Tracks if we have images
+	 *
+	 * Initially added this 'cache' because of reports of it being incorrectly reported in wp_footer - After a closer
+	 * look, I think this was actually my fault in my handling of the have_images in per_post_overrides, but this value
+	 * is generally access more than once per request, so leaving this here anyways
+	 *
+	 * @since 2.1.2
+	 * @access protected
+	 * @var bool|null $_have_images Do we have images?
+	 */
+	protected $_have_images = null;
+
+	/**
 	 * Called when class instantiated.
 	 *
 	 * @since 2.0.0
@@ -194,9 +207,13 @@ class ENSS_Slide extends ENSS_Singleton {
 	 * @return bool true if images, false if not.
 	 */
 	function have_images() {
-		$counts = wp_count_posts( $this->_post_type );
+		if ( is_null( $this->_have_images ) ) {
+			$counts = wp_count_posts( $this->get_post_type() );
 
-		return $counts->publish > 0 ? true : false;
+			$this->_have_images = $counts->publish > 0 ? true : false;
+		}
+
+		return $this->_have_images;
 	}
 
 	/**

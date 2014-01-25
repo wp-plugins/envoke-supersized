@@ -1,6 +1,6 @@
-/*! Envoke Supersized - v2.1.1
+/*! Envoke Supersized - v2.1.2
  * http://envokedesign.com
- * Copyright (c) 2013; * Licensed GPLv2+ */
+ * Copyright (c) 2014; * Licensed GPLv2+ */
 /**
  * Envoke Supersized - Per Post Override Scripts
  *

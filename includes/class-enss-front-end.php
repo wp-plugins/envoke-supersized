@@ -28,7 +28,17 @@ class ENSS_Front_End extends ENSS_Singleton {
 	 */
 	public function _init() {
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
+		add_filter( 'body_class', array( $this, 'body_class' ) );
 		add_action( 'wp_footer', array( $this, 'output' ), 20 );
+	}
+
+	/**
+	 * Allows selectively disabling supersized on a per-page basis using the filter 'enss-enabled'
+	 *
+	 * @return bool
+	 */
+	protected function is_enabled() {
+		return apply_filters( 'enss-enabled', true );
 	}
 
 	/**
@@ -43,7 +53,7 @@ class ENSS_Front_End extends ENSS_Singleton {
 		$slide_class = ENSS_Slide::get_instance();
 		$override_class = ENSS_Per_Post_Override::get_instance();
 
-		if ( $slide_class->have_images() || $override_class->have_images() ) {
+		if ( $this->is_enabled() && ( $slide_class->have_images() || $override_class->have_images() ) ) {
 			wp_enqueue_style( 'enss' );
 			wp_enqueue_script( 'enss-front-end' );
 
@@ -55,15 +65,37 @@ class ENSS_Front_End extends ENSS_Singleton {
 	}
 
 	/**
+	 * Add a class to the body, indicating that we have supersized slides on the page
+	 *
+	 * @since 2.1.2
+	 */
+	public function body_class( $classes ) {
+		$slide_class = ENSS_Slide::get_instance();
+		$override_class = ENSS_Per_Post_Override::get_instance();
+
+		if ( $this->is_enabled() && ( $slide_class->have_images() || $override_class->have_images() ) ) {
+			$classes[] = 'enss';
+		}
+
+		return $classes;
+	}
+
+	/**
 	 * Output the required HTML and javascript.
 	 *
 	 * @since 2.0.0
 	 */
 	public function output() {
+		/*
+		 * Added wp_reset_query() for 2.1.2 - Sometimes people forget to reset things when they overwrite the global
+		 * $post or $wp_query objects, so this is just to make sure we can still work, even in those instances!
+		 */
+		wp_reset_query();
+
 		$slide_class = ENSS_Slide::get_instance();
 		$override_class = ENSS_Per_Post_Override::get_instance();
 
-		if ( $slide_class->have_images() || $override_class->have_images() ) {
+		if ( $this->is_enabled() && ( $slide_class->have_images() || $override_class->have_images() ) ) {
 			$this->output_javascript();
 			$this->output_html();
 		}
