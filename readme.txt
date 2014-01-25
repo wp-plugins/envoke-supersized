@@ -60,7 +60,7 @@ By default, only posts and pages have the override meta box available. To add it
 
 == Changelog ==
 
-= 2.1.2
+= 2.1.2 =
 * Fix: Only check for overrides where is_singular() returns true, since they aren't supported anywhere else
 * Fix: Call wp_reset_query() to account for themes and other plugins that modify the global objects, without resetting them
 * Fix: Use get_post_type() instead of accessing _post_type directly, to make sure filters are always applied
