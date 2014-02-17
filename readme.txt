@@ -3,7 +3,7 @@ Contributors:      cmmarslender, dillonmccallum, envoke
 Tags: 			   supersized, slideshow, fullscreen, background, gallery, image, images, plugin, custom post type, javascript, jquery, slider, media, picture, pictures
 Requires at least: 3.5.1
 Tested up to:      3.8
-Stable tag:        2.1.2
+Stable tag:        2.1.3
 License:           GPLv2 or later
 License URI:       http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -59,6 +59,9 @@ By default, only posts and pages have the override meta box available. To add it
 1. Example of the Envoke-Supersized plugin in action on our own website.
 
 == Changelog ==
+
+= 2.1.3 =
+* Fix: Removed no longer used css that could conflict with some themes.
 
 = 2.1.2 =
 * Fix: Only check for overrides where is_singular() returns true, since they aren't supported anywhere else
@@ -124,6 +127,9 @@ Version 2.0.0 brings many bug fixes and improvements, and a lot of under-the-hoo
 * The first publicly available version of the Envoke Supersized plugin
 
 == Upgrade Notice ==
+
+= 2.1.3 =
+Removed no longer used css that could conflict with some themes.
 
 = 2.1.2 =
 Fixes issue where overrides and slides would conflict on non-singular pages. Thanks Bozz for reporting the issue and
