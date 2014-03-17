@@ -61,7 +61,7 @@ By default, only posts and pages have the override meta box available. To add it
 == Changelog ==
 
 = 2.1.4 =
-* Fix: Fixes issue with thumbnails pagination does not work.
+* Fix: Fixes issue where thumbnail pagination does not work.
 
 = 2.1.3 =
 * Fix: Removed no longer used css that could conflict with some themes.
