@@ -1,4 +1,4 @@
-/*! Envoke Supersized - v2.1.3
+/*! Envoke Supersized - v2.1.4
  * http://envokedesign.com
  * Copyright (c) 2014; * Licensed GPLv2+ */
 (function($){
@@ -983,10 +983,12 @@
         		$(vars.thumb_forward).click(function(){
         			if (vars.thumb_page - vars.thumb_interval <= -$(vars.thumb_list).width()){
         				vars.thumb_page = 0;
-        				$(vars.thumb_list).stop().animate({'left': vars.thumb_page}, {duration:500, easing:'easeOutExpo'});
+        				$(vars.thumb_list).stop().animate({'left': vars.thumb_page}, 500);
         			}else{
         				vars.thumb_page = vars.thumb_page - vars.thumb_interval;
-        				$(vars.thumb_list).stop().animate({'left': vars.thumb_page}, {duration:500, easing:'easeOutExpo'});
+						console.log(vars.thumb_page);
+						console.log(vars.thumb_interval);
+        				$(vars.thumb_list).stop().animate({'left': vars.thumb_page}, 500);
         			}
         		});
         		
@@ -995,10 +997,10 @@
         			if (vars.thumb_page + vars.thumb_interval > 0){
         				vars.thumb_page = Math.floor($(vars.thumb_list).width() / vars.thumb_interval) * -vars.thumb_interval;
         				if ($(vars.thumb_list).width() <= -vars.thumb_page) vars.thumb_page = vars.thumb_page + vars.thumb_interval;
-        				$(vars.thumb_list).stop().animate({'left': vars.thumb_page}, {duration:500, easing:'easeOutExpo'});
+        				$(vars.thumb_list).stop().animate({'left': vars.thumb_page}, 500);
 					}else{
         				vars.thumb_page = vars.thumb_page + vars.thumb_interval;
-        				$(vars.thumb_list).stop().animate({'left': vars.thumb_page}, {duration:500, easing:'easeOutExpo'});
+        				$(vars.thumb_list).stop().animate({'left': vars.thumb_page}, 500);
         			}
         		});
 				
@@ -1053,7 +1055,7 @@
 						    mousePos = e.pageX; 
 						    newX = (containerWidth - listWidth) * (e.pageX/containerWidth);
 						    diff = parseInt(Math.abs(parseInt($(vars.thumb_list).css('left'))-newX )).toFixed(0);
-						    $(vars.thumb_list).stop().animate({'left':newX}, {duration:diff*3, easing:'easeOutExpo'});
+						    $(vars.thumb_list).stop().animate({'left':newX}, diff*3);
 						}
 					}
 				});
@@ -1160,21 +1162,21 @@
 					if (direction == 'next'){
 						if (vars.current_slide == 0){
 							vars.thumb_page = 0;
-							$(vars.thumb_list).stop().animate({'left': vars.thumb_page}, {duration:500, easing:'easeOutExpo'});
+							$(vars.thumb_list).stop().animate({'left': vars.thumb_page}, 500);
 						} else if ($('.current-thumb').offset().left - $(vars.thumb_tray).offset().left >= vars.thumb_interval){
 	        				vars.thumb_page = vars.thumb_page - vars.thumb_interval;
-	        				$(vars.thumb_list).stop().animate({'left': vars.thumb_page}, {duration:500, easing:'easeOutExpo'});
+	        				$(vars.thumb_list).stop().animate({'left': vars.thumb_page}, 500);
 						}
 					// If previous slide direction
 					}else if(direction == 'prev'){
 						if (vars.current_slide == api.options.slides.length - 1){
 							vars.thumb_page = Math.floor($(vars.thumb_list).width() / vars.thumb_interval) * -vars.thumb_interval;
 							if ($(vars.thumb_list).width() <= -vars.thumb_page) vars.thumb_page = vars.thumb_page + vars.thumb_interval;
-							$(vars.thumb_list).stop().animate({'left': vars.thumb_page}, {duration:500, easing:'easeOutExpo'});
+							$(vars.thumb_list).stop().animate({'left': vars.thumb_page}, 500);
 						} else if ($('.current-thumb').offset().left - $(vars.thumb_tray).offset().left < 0){
 							if (vars.thumb_page + vars.thumb_interval > 0) return false;
 	        				vars.thumb_page = vars.thumb_page + vars.thumb_interval;
-	        				$(vars.thumb_list).stop().animate({'left': vars.thumb_page}, {duration:500, easing:'easeOutExpo'});
+	        				$(vars.thumb_list).stop().animate({'left': vars.thumb_page}, 500);
 						}
 					}
 				}
