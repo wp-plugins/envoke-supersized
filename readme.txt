@@ -3,7 +3,7 @@ Contributors:      cmmarslender, dillonmccallum, envoke
 Tags: 			   supersized, slideshow, fullscreen, background, gallery, image, images, plugin, custom post type, javascript, jquery, slider, media, picture, pictures
 Requires at least: 3.5.1
 Tested up to:      4.0
-Stable tag:        2.1.4
+Stable tag:        2.2.0
 License:           GPLv2 or later
 License URI:       http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -59,6 +59,9 @@ By default, only posts and pages have the override meta box available. To add it
 1. Example of the Envoke-Supersized plugin in action on our own website.
 
 == Changelog ==
+
+= 2.2.0 =
+* Fix: Fixes some issues related to PHP 5.2 Compatibility
 
 = 2.1.4 =
 * Fix: Fixes issue where thumbnail pagination does not work.
@@ -130,6 +133,9 @@ Version 2.0.0 brings many bug fixes and improvements, and a lot of under-the-hoo
 * The first publicly available version of the Envoke Supersized plugin
 
 == Upgrade Notice ==
+
+= 2.2.0 =
+Adds better support for PHP 5.2
 
 = 2.1.4 =
 Fixes issue where thumbnail pagination does not work.

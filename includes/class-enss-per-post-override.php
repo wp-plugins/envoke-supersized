@@ -13,7 +13,14 @@
  *
  * @since 2.0.0
  */
-class ENSS_Per_Post_Override extends ENSS_Singleton {
+class ENSS_Per_Post_Override {
+
+	/**
+	 * Instance of this class
+	 *
+	 * @var ENSS_Per_Post_Override
+	 */
+	protected static $_instance;
 
 	/**
 	 * The post types to enable overrides for.
@@ -59,6 +66,19 @@ class ENSS_Per_Post_Override extends ENSS_Singleton {
 	 * @var string $nonce_name The overrides nonce form field name
 	 */
 	protected $nonce_name = 'enss-per-post-override-nonce';
+
+	/**
+	 * Returns the instance of this class
+	 *
+	 * @return ENSS_Per_Post_Override
+	 */
+	public static function get_instance() {
+		if ( is_null( self::$_instance ) ) {
+			self::$_instance = new ENSS_Per_Post_Override();
+			self::$_instance->_init();
+		}
+		return self::$_instance;
+	}
 
 	/**
 	 * Called when class instantiated.

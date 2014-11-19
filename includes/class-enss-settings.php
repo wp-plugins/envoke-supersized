@@ -16,7 +16,14 @@
  *
  * @since 2.0.0
  */
-class ENSS_Settings extends ENSS_Singleton {
+class ENSS_Settings {
+
+	/**
+	 * Contains the instance of this class
+	 *
+	 * @var ENSS_Settings
+	 */
+	protected static $_instance;
 
 	/**
 	 * The settings page hook.
@@ -95,6 +102,19 @@ class ENSS_Settings extends ENSS_Singleton {
 	protected $_get_settings_default_args = array(
 		'return' => 'value',
 	);
+
+	/**
+	 * Returns the instance of this class
+	 *
+	 * @return ENSS_Settings
+	 */
+	public static function get_instance() {
+		if ( is_null( self::$_instance ) ) {
+			self::$_instance = new ENSS_Settings();
+			self::$_instance->_init();
+		}
+		return self::$_instance;
+	}
 
 	/**
 	 * Called when class instantiated.
