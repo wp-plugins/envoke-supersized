@@ -17,7 +17,14 @@
  *
  * @since 2.0.0
  */
-class ENSS_Slide extends ENSS_Singleton {
+class ENSS_Slide {
+
+	/**
+	 * Contains the instance of this class.
+	 *
+	 * @var ENSS_Slide
+	 */
+	protected static $_instance;
 
 	/**
 	 * The post type name.
@@ -49,6 +56,19 @@ class ENSS_Slide extends ENSS_Singleton {
 	 * @var bool|null $_have_images Do we have images?
 	 */
 	protected $_have_images = null;
+
+	/**
+	 * Returns the instance of this class
+	 *
+	 * @return ENSS_Slide
+	 */
+	public static function get_instance() {
+		if ( is_null( self::$_instance ) ) {
+			self::$_instance = new ENSS_Slide();
+			self::$_instance->_init();
+		}
+		return self::$_instance;
+	}
 
 	/**
 	 * Called when class instantiated.

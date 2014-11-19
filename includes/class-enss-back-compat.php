@@ -13,7 +13,14 @@
  *
  * @since 2.0.0
  */
-class ENSS_Back_Compat extends ENSS_Singleton {
+class ENSS_Back_Compat {
+
+	/**
+	 * Instance of this class
+	 *
+	 * @var ENSS_Back_Compat
+	 */
+	protected static $_instance = null;
 
 	/**
 	 * Meta key that stored image url in 1.x versions.
@@ -32,6 +39,19 @@ class ENSS_Back_Compat extends ENSS_Singleton {
 	 * @var string $legacy_settings_key The option name that stored settings in 1.x versions.
 	 */
 	protected $legacy_settings_key = 'envoke-supersized-settings';
+
+	/**
+	 * Returns the instance of this class
+	 *
+	 * @return ENSS_Back_Compat
+	 */
+	public static function get_instance() {
+		if ( is_null( self::$_instance ) ) {
+			self::$_instance = new ENSS_Back_Compat();
+			self::$_instance->_init();
+		}
+		return self::$_instance;
+	}
 
 	/**
 	 * Called when class instantiated.

@@ -16,7 +16,27 @@
  *
  * @since 2.0.0
  */
-class ENSS_Front_End extends ENSS_Singleton {
+class ENSS_Front_End {
+
+	/**
+	 * Instance of this class
+	 *
+	 * @var ENSS_Front_End
+	 */
+	protected static $_instance;
+
+	/**
+	 * Returns the instance of this class
+	 *
+	 * @return ENSS_Front_End
+	 */
+	public static function get_instance() {
+		if ( is_null( self::$_instance ) ) {
+			self::$_instance = new ENSS_Front_End();
+			self::$_instance->_init();
+		}
+		return self::$_instance;
+	}
 
 	/**
 	 * Called when class instantiated.
